@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  neighborhood: MyString
+  type: 
+  body_count: 1
+  description: MyText
+
+two:
+  neighborhood: MyString
+  type: 
+  body_count: 1
+  description: MyText

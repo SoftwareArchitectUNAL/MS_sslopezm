@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  act_type: MyString
+  act_street_id: 1
+  act_gender_id: 1
+  act_intrafamily_id: 1
+  act_murder_id: 1
+
+two:
+  act_type: MyString
+  act_street_id: 1
+  act_gender_id: 1
+  act_intrafamily_id: 1
+  act_murder_id: 1

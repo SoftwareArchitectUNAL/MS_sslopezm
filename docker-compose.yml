@@ -1,0 +1,20 @@
+version: '2'
+services:
+   db:
+     image: mysql:5.7
+     ports:
+       - "3306:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: ax4i3wct3h
+       MYSQL_DATABASE: violence_bd
+       MYSQL_USER: root
+       MYSQL_PASSWORD: ax4i3wct3h
+   web:
+     build: .
+     command: puma
+     volumes:
+       - .:/Violence
+     ports:
+       - "9292:9292"
+     links:
+       - db

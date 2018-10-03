@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  neighboorhood: MyString
+  victim: MyString
+  aggressor: MyString
+  criminal_complaint: MyText
+
+two:
+  neighboorhood: MyString
+  victim: MyString
+  aggressor: MyString
+  criminal_complaint: MyText

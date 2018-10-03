@@ -1,0 +1,25 @@
+
+
+development:
+ adapter: mysql2
+ encoding: utf8
+ reconnect: false
+ database: Violence_dev
+ pool: 5
+ username: root
+ password: ax4i3wct3h
+ #socket: /tmp/mysql.sock
+ host: db
+ socket: /var/run/mysql/mysql.sock
+
+test:
+ adapter: mysql2
+ encoding: utf8
+ reconnect: false
+ database: Violence_test
+ pool: 5
+ username: root
+ password: ax4i3wct3h
+ #socket: /tmp/mysql.sock
+ host: db
+ socket: /var/run/mysql/mysql.sock

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  neighboorhood: MyString
+  type: 
+  criminal_complaint: MyText
+  body_count: 1
+
+two:
+  neighboorhood: MyString
+  type: 
+  criminal_complaint: MyText
+  body_count: 1

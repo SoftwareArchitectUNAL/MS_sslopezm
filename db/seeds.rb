@@ -13,11 +13,6 @@
         body_count: Faker::Number.between(0, 20),
         description: FFaker::Lorem.phrase(30),
     )
-    if street.persisted?
-        violence_act = street.create_violence_act(
-            act_type: "Street",
-        )
-    end
 
     gender = Gender.create(
         neighborhood: FFaker::Lorem.phrase(3),
@@ -25,12 +20,6 @@
         criminal_complaint: FFaker::Lorem.phrase(20),
         body_count: Faker::Number.between(0, 1),
     )
-    if gender.persisted?
-        violence_act = gender.create_violence_act(
-            act_type: "Gender",
-        )
-    end
-
 
     intrafamily = Intrafamily.create(
         neighborhood: FFaker::Lorem.phrase(3),
@@ -38,22 +27,13 @@
         aggressor: Faker::Lorem.word,
         criminal_complaint: FFaker::Lorem.phrase(20),
     )
-    if intrafamily.persisted?
-        violence_act = intrafamily.create_violence_act(
-            act_type: "Intrafamility",
-        )
-    end
 
     murder = Murder.create(
         neighborhood: FFaker::Lorem.phrase(3),
         body_count: Faker::Number.between(0, 20),
         description: FFaker::Lorem.phrase(30),
     )
-    if murder.persisted?
-        violence_act = murder.create_violence_act(
-            act_type: "Murder",
-        )
-    end
+    
 end
         
     

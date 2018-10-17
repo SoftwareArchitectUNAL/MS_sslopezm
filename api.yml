@@ -1,0 +1,729 @@
+#Test with: http://editor.swagger.io/
+
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Microservice Violence
+  description: Ruby + MySQL
+  license:
+    name: Software Architecture 2018-II - UNriesgo
+host: 192.168.99.102:9292
+basePath: /resources
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /murders:
+    post:
+      summary: Creates a new murder
+      operationId: createMurder
+      parameters:
+        - name: murder
+          in: body
+          required: true
+          description: Murder Object
+          schema:
+            $ref: '#/definitions/MurderInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Murder'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    get:
+      summary: Returns all murders violence acts
+      operationId: getAllMurders
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Murders'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /murders/{id}:
+    get:
+      summary: Returns a murder with the given id
+      operationId: getMurderById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the murder act to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Murder'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+            
+    put:
+      summary: Updates a murder with the given id
+      operationId: updateMurder
+      parameters:
+        - name: id
+          in: path
+          description: The id of the murder act to be returned
+          required: true
+          type: integer
+        - name: Murder
+          in: body
+          required: true
+          description: Murder Object
+          schema:
+            $ref: '#/definitions/MurderInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Murder'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    delete:
+      summary: Deletes a murder with the given id
+      operationId: deleteMurder
+      parameters:
+        - name: id
+          in: path
+          description: The id of the murder violence act to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/MurderId'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+  /streets:
+    post:
+      summary: Creates a new street violence act
+      operationId: createStreet
+      parameters:
+        - name: street
+          in: body
+          required: true
+          description: Street Object
+          schema:
+            $ref: '#/definitions/StreetInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Street'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    get:
+      summary: Returns all Street violence acts
+      operationId: getAllStreets
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Streets'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /streets/{id}:
+    get:
+      summary: Returns a street violence act with the given id
+      operationId: getStreetById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the street act to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Street'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    put:
+      summary: Updates a street with the given id
+      operationId: updateStreet
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Street act to be returned
+          required: true
+          type: integer
+        - name: Street
+          in: body
+          required: true
+          description: Street Object
+          schema:
+            $ref: '#/definitions/StreetInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Street'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    delete:
+      summary: Deletes a Street violence act with the given id
+      operationId: deleteStreet
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Street violence act to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/StreetId'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+  /genders:
+    post:
+      summary: Creates a new gender violence act
+      operationId: createGender
+      parameters:
+        - name: gender
+          in: body
+          required: true
+          description: Gender Object
+          schema:
+            $ref: '#/definitions/GenderInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Gender'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    get:
+      summary: Returns all Genders violence acts
+      operationId: getAllGenders
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Genders'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /genders/{id}:
+    get:
+      summary: Returns a Gender violence act with the given id
+      operationId: getGenderById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Gender act to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Gender'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+            
+    put:
+      summary: Updates a Gender violence act with the given id
+      operationId: updateGender
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Gender act to be returned
+          required: true
+          type: integer
+        - name: Gender
+          in: body
+          required: true
+          description: Gender Object
+          schema:
+            $ref: '#/definitions/GenderInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Gender'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    delete:
+      summary: Deletes a Gender with the given id
+      operationId: deleteGender
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Gender violence act to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GenderId'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+  /intrafamilies:
+    post:
+      summary: Creates a new Intrafamily violence act
+      operationId: createIntrafamily
+      parameters:
+        - name: intrafamily
+          in: body
+          required: true
+          description: Intrafamily Object
+          schema:
+            $ref: '#/definitions/IntrafamilyInput'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Intrafamily'
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    get:
+      summary: Returns all Intrafamilies violence acts
+      operationId: getAllIntrafamilies
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Intrafamilies'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /intrafamilies/{id}:
+    get:
+      summary: Returns a Intrafamily violence act with the given id
+      operationId: getIntrafamilyById
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Intrafamily act to be returned
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Intrafamily'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+            
+    put:
+      summary: Updates a Intrafamily violence act with the given id
+      operationId: updateIntrafamily
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Intrafamily act to be returned
+          required: true
+          type: integer
+        - name: Intrafamily
+          in: body
+          required: true
+          description: Intrafamily Object
+          schema:
+            $ref: '#/definitions/IntrafamilyInput'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Intrafamily'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+            
+    delete:
+      summary: Deletes a Intrafamily with the given id
+      operationId: deleteIntrafamily
+      parameters:
+        - name: id
+          in: path
+          description: The id of the Intrafamily violence act to be deleted
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/IntrafamilyId'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '406':
+          description: Not Acceptable (Invalid Params)
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+definitions:
+
+  Murder:
+    type: object
+    properties:
+      murder_id:
+        type: integer
+      neighborhood:
+        type: string
+      body_count:
+        type: integer
+      description:
+        type: string
+        
+  MurderInput:
+    type: object
+    properties:
+      neighborhood:
+        type: string
+      body_count:
+        type: integer
+      description:
+        type: string
+        
+  Murders:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Murder'
+          
+  MurderId:
+    type: object
+    properties:
+      id:
+        type: integer
+  
+  Street:
+    type: object
+    properties:
+      street_id:
+        type: integer
+      neighborhood:
+        type: string
+      stype:
+        type: string
+      body_count:
+        type: integer
+      description:
+        type: string
+        
+  StreetInput:
+    type: object
+    properties:
+      neighborhood:
+        type: string
+      stype:
+        type: string
+      body_count:
+        type: integer
+      description:
+        type: string
+        
+  Streets:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Street'
+          
+  StreetId:
+    type: object
+    properties:
+      id:
+        type: integer
+        
+  Gender:
+    type: object
+    properties:
+      gender_id:
+        type: integer
+      neighborhood:
+        type: string
+      gtype:
+        type: string
+      criminal_complaint:
+        type: string
+      body_count:
+        type: integer
+        
+  GenderInput:
+    type: object
+    properties:
+      neighborhood:
+        type: string
+      gtype:
+        type: string
+      criminal_complaint:
+        type: string
+      body_count:
+        type: integer
+        
+  Genders:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Gender'
+          
+  GenderId:
+    type: object
+    properties:
+      id:
+        type: integer
+        
+  Intrafamily:
+    type: object
+    properties:
+      intrafamily_id:
+        type: integer
+      neighborhood:
+        type: string
+      victim:
+        type: string
+      aggressor:
+        type: string
+      criminal_complaint:
+        type: string
+        
+  IntrafamilyInput:
+    type: object
+    properties:
+      neighborhood:
+        type: string
+      victim:
+        type: string
+      aggressor:
+        type: string
+      criminal_complaint:
+        type: string
+        
+  Intrafamilies:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Intrafamily'
+          
+  IntrafamilyId:
+    type: object
+    properties:
+      id:
+        type: integer
+        
+# Errors
+  ErrorModel:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+      description:
+        type: object

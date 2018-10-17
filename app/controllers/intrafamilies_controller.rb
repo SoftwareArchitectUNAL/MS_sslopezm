@@ -2,7 +2,6 @@ class IntrafamiliesController < ApplicationController
   before_action :set_intrafamily, only: [:show, :update, :destroy]
 
   # GET /intrafamilies
-  # GET /intrafamilies.json
   def index
     @intrafamilies = Intrafamily.all
 
@@ -10,13 +9,11 @@ class IntrafamiliesController < ApplicationController
   end
 
   # GET /intrafamilies/1
-  # GET /intrafamilies/1.json
   def show
     render json: @intrafamily
   end
 
   # POST /intrafamilies
-  # POST /intrafamilies.json
   def create
     @intrafamily = Intrafamily.new(intrafamily_params)
 
@@ -28,23 +25,19 @@ class IntrafamiliesController < ApplicationController
   end
 
   # PATCH/PUT /intrafamilies/1
-  # PATCH/PUT /intrafamilies/1.json
   def update
     @intrafamily = Intrafamily.find(params[:id])
 
     if @intrafamily.update(intrafamily_params)
-      head :no_content
+      render json: @intrafamily
     else
       render json: @intrafamily.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /intrafamilies/1
-  # DELETE /intrafamilies/1.json
   def destroy
     @intrafamily.destroy
-
-    head :no_content
   end
 
   private
@@ -54,6 +47,6 @@ class IntrafamiliesController < ApplicationController
     end
 
     def intrafamily_params
-      params.require(:intrafamily).permit(:neighborhood, :victim, :aggressor, :criminal_complaint)
+      params.permit(:neighborhood, :victim, :aggressor, :criminal_complaint)
     end
 end

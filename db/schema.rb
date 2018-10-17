@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181002134535) do
+ActiveRecord::Schema.define(version: 20181002134428) do
 
   create_table "genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "neighborhood"
@@ -47,22 +47,4 @@ ActiveRecord::Schema.define(version: 20181002134535) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "violence_acts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "act_type"
-    t.bigint "street_id"
-    t.bigint "gender_id"
-    t.bigint "intrafamily_id"
-    t.bigint "murder_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["gender_id"], name: "index_violence_acts_on_gender_id"
-    t.index ["intrafamily_id"], name: "index_violence_acts_on_intrafamily_id"
-    t.index ["murder_id"], name: "index_violence_acts_on_murder_id"
-    t.index ["street_id"], name: "index_violence_acts_on_street_id"
-  end
-
-  add_foreign_key "violence_acts", "genders"
-  add_foreign_key "violence_acts", "intrafamilies"
-  add_foreign_key "violence_acts", "murders"
-  add_foreign_key "violence_acts", "streets"
 end

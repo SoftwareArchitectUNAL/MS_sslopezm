@@ -13,7 +13,7 @@ class MurdersControllerTest < ActionController::TestCase
 
   test "should create murder" do
     assert_difference('Murder.count') do
-      post :create, murder: { body_count: @murder.body_count, description: @murder.description, neighborhood: @murder.neighborhood }
+      post :create, murder: { body_count: @murder.body_count, description: @murder.description, locality: @murder.locality }
     end
 
     assert_response 201
@@ -25,7 +25,7 @@ class MurdersControllerTest < ActionController::TestCase
   end
 
   test "should update murder" do
-    put :update, id: @murder, murder: { body_count: @murder.body_count, description: @murder.description, neighborhood: @murder.neighborhood }
+    put :update, id: @murder, murder: { body_count: @murder.body_count, description: @murder.description, locality: @murder.locality }
     assert_response 204
   end
 

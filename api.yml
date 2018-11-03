@@ -546,7 +546,7 @@ definitions:
     properties:
       murder_id:
         type: integer
-      neighborhood:
+      locality:
         type: string
       body_count:
         type: integer
@@ -556,7 +556,7 @@ definitions:
   MurderInput:
     type: object
     properties:
-      neighborhood:
+      locality:
         type: string
       body_count:
         type: integer
@@ -587,7 +587,7 @@ definitions:
     properties:
       street_id:
         type: integer
-      neighborhood:
+      locality:
         type: string
       stype:
         type: string
@@ -599,7 +599,7 @@ definitions:
   StreetInput:
     type: object
     properties:
-      neighborhood:
+      locality:
         type: string
       stype:
         type: string
@@ -632,7 +632,7 @@ definitions:
     properties:
       gender_id:
         type: integer
-      neighborhood:
+      locality:
         type: string
       gtype:
         type: string
@@ -644,7 +644,7 @@ definitions:
   GenderInput:
     type: object
     properties:
-      neighborhood:
+      locality:
         type: string
       gtype:
         type: string
@@ -677,7 +677,7 @@ definitions:
     properties:
       intrafamily_id:
         type: integer
-      neighborhood:
+      locality:
         type: string
       victim:
         type: string
@@ -689,7 +689,7 @@ definitions:
   IntrafamilyInput:
     type: object
     properties:
-      neighborhood:
+      locality:
         type: string
       victim:
         type: string

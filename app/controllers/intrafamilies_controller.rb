@@ -47,6 +47,6 @@ class IntrafamiliesController < ApplicationController
     end
 
     def intrafamily_params
-      params.permit(:neighborhood, :victim, :aggressor, :criminal_complaint)
+      params.permit(:locality, :victim, :aggressor, :criminal_complaint)
     end
 end

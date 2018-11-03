@@ -6,32 +6,36 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+@localities = ["Bosa", "Kennedy", "Usaquen", "Chapinero", "Santa Fe", "San Cristobal", "Usme", "Tunjuelito", "Fontibon", "Engativa", "Suba",
+"Barrios Unidos", "Teusaquillo", "Los Martires", "Antonio Nariño", "Sumapaz", "Ciudad Bolivar", "Rafael Uribe Uribe", "La Candelaria",
+"Puente Aranda"]
+
 20.times do 
     street = Street.create(
-        neighborhood: FFaker::Lorem.phrase(3),
+        locality: @localities.sample,
         stype: Faker::Lorem.word,
         body_count: Faker::Number.between(0, 20),
-        description: FFaker::Lorem.phrase(30),
+        description: FFaker::Lorem.phrase(15),
     )
 
     gender = Gender.create(
-        neighborhood: FFaker::Lorem.phrase(3),
+        locality: @localities.sample,
         gtype: Faker::Lorem.word,
-        criminal_complaint: FFaker::Lorem.phrase(20),
+        criminal_complaint: FFaker::Lorem.phrase(10),
         body_count: Faker::Number.between(0, 1),
     )
 
     intrafamily = Intrafamily.create(
-        neighborhood: FFaker::Lorem.phrase(3),
+        locality: @localities.sample,
         victim: Faker::Lorem.word,
         aggressor: Faker::Lorem.word,
-        criminal_complaint: FFaker::Lorem.phrase(20),
+        criminal_complaint: FFaker::Lorem.phrase(10),
     )
 
     murder = Murder.create(
-        neighborhood: FFaker::Lorem.phrase(3),
+        locality: @localities.sample,
         body_count: Faker::Number.between(0, 20),
-        description: FFaker::Lorem.phrase(30),
+        description: FFaker::Lorem.phrase(15),
     )
     
 end

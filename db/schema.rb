@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20181002134428) do
 
   create_table "genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "neighborhood"
+    t.string "locality"
     t.string "gtype"
     t.text "criminal_complaint"
     t.integer "body_count"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20181002134428) do
   end
 
   create_table "intrafamilies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "neighborhood"
+    t.string "locality"
     t.string "victim"
     t.string "aggressor"
     t.text "criminal_complaint"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20181002134428) do
   end
 
   create_table "murders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "neighborhood"
+    t.string "locality"
     t.integer "body_count"
     t.text "description"
     t.datetime "created_at", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20181002134428) do
   end
 
   create_table "streets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "neighborhood"
+    t.string "locality"
     t.string "stype"
     t.integer "body_count"
     t.text "description"

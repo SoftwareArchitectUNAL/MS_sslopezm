@@ -47,6 +47,6 @@ class StreetsController < ApplicationController
     end
 
     def street_params
-      params.permit(:neighborhood, :stype, :body_count, :description)
+      params.permit(:locality, :stype, :body_count, :description)
     end
 end

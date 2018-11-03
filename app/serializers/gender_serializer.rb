@@ -1,3 +1,3 @@
 class GenderSerializer < ActiveModel::Serializer
-  attributes :id, :neighborhood, :gtype, :criminal_complaint, :body_count
+  attributes :id, :locality, :gtype, :criminal_complaint, :body_count
 end

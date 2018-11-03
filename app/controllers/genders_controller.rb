@@ -47,6 +47,6 @@ class GendersController < ApplicationController
     end
 
     def gender_params
-      params.permit(:neighborhood, :gtype, :criminal_complaint, :body_count)
+      params.permit(:locality, :gtype, :criminal_complaint, :body_count)
     end
 end

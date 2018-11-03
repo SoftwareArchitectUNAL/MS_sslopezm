@@ -10,6 +10,7 @@ development:
  password: ax4i3wct3h
  #socket: /tmp/mysql.sock
  host: db
+ #host: localhost
  socket: /var/run/mysql/mysql.sock
 
 test:
@@ -22,4 +23,5 @@ test:
  password: ax4i3wct3h
  #socket: /tmp/mysql.sock
  host: db
+ #host: localhost
  socket: /var/run/mysql/mysql.sock

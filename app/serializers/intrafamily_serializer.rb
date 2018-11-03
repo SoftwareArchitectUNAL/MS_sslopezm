@@ -1,3 +1,3 @@
 class IntrafamilySerializer < ActiveModel::Serializer
-  attributes :id, :neighborhood, :victim, :aggressor, :criminal_complaint
+  attributes :id, :locality, :victim, :aggressor, :criminal_complaint
 end

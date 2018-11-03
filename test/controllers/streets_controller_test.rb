@@ -13,7 +13,7 @@ class StreetsControllerTest < ActionController::TestCase
 
   test "should create street" do
     assert_difference('Street.count') do
-      post :create, street: { body_count: @street.body_count, description: @street.description, neighborhood: @street.neighborhood, type: @street.type }
+      post :create, street: { body_count: @street.body_count, description: @street.description, locality: @street.locality, type: @street.type }
     end
 
     assert_response 201
@@ -25,7 +25,7 @@ class StreetsControllerTest < ActionController::TestCase
   end
 
   test "should update street" do
-    put :update, id: @street, street: { body_count: @street.body_count, description: @street.description, neighborhood: @street.neighborhood, type: @street.type }
+    put :update, id: @street, street: { body_count: @street.body_count, description: @street.description, locality: @street.locality, type: @street.type }
     assert_response 204
   end
 

@@ -45,6 +45,6 @@ class MurdersController < ApplicationController
     end
 
     def murder_params
-      params.permit(:neighborhood, :body_count, :description)
+      params.permit(:locality, :body_count, :description)
     end
 end

@@ -6,3 +6,5 @@ ADD Gemfile /Violence/Gemfile
 ADD Gemfile.lock /Violence/Gemfile.lock
 RUN bundle install
 ADD . /Violence
+
+EXPOSE 9292

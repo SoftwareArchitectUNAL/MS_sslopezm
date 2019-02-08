@@ -1,6 +1,6 @@
 version: '2'
 services:
-   violence_db:
+   violence-db:
      image: mysql:5.7
      ports:
        - "3306:3306"
@@ -9,7 +9,7 @@ services:
        MYSQL_DATABASE: violence_bd
        MYSQL_USER: root
        MYSQL_PASSWORD: ax4i3wct3h
-   violence_ms:
+   violence-ms:
      build: .
      command: puma
      volumes:
@@ -17,4 +17,4 @@ services:
      ports:
        - "9292:9292"
      links:
-       - violence_db
+       - violence-db
